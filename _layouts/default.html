@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ site.title }}</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?">
+
+    {% include meta.html %}
+
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:regular,bold">
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/theme.css" />
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
+
+</head>
+
+<body id="home">
+<div id="Header">
+    <div class="wrapper">
+        <h1>frontCats</h1>
+        <small>frontend разработка для все в мире котанов-супергероев!</small>
+    </div>
+</div>
+<div id="Content" class="wrapper">
+    <div class="countdown styled"></div>
+    <br/>
+    <h2 class="intro">Наш сайт находится на стадии разработки. По всем вопросам обращаться на почту к главному котану ennet@mail.ru</h2>
+    <div id="subscribe">
+        <div id="socialIcons">
+            <ul>
+                <li><a href="https://twitter.com/ennett50" title="Twitter" target="_blank" class="twitterIcon"></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="overlay"></div>
+<script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="/js/Backstretch.js"></script>
+<script type="text/javascript" src="/js/jquery.countdown.js"></script>
+<script type="text/javascript" src="/js/global.js"></script>
+</body>
+</html>
