@@ -1,0 +1,230 @@
+---
+layout: post
+permalink: /validation-html5-forms-with-css3/
+date:   21.01.2017
+title: Валидация html5 форм с помощью css3
+categories: html
+---
+
+<p>Псевдокласс — это ключевое слово, которое добавляется к css-селектору (любому элементу веб-страницы) и определяет его
+    особое состояние. Например, с помощью псевдокласса :hover можно изменить стиль элемента при наведении на него
+    курсора мыши.</p>
+<h2>Виды псевдоклассов</h2>
+<ul class="contents">
+    <li style="color:white; background:#CACACB;">Содержание:</li>
+    <li><a href="#read-only">1. Псевдокласс :read-only</a></li>
+    <li><a href="#optional">2. Псевдокласс :optional</a></li>
+    <li><a href="#required">3. Псевдокласс :required</a></li>
+    <li><a href="#placeholder">4. Псевдоэлемент ::placeholder</a></li>
+    <li><a href="#in-range">5. Псевдокласс :in-range</a></li>
+    <li><a href="#invalid">6. Псевдокласс :invalid</a></li>
+    <li><a href="#out-of-range">7. Псевдокласс :out-of-range</a></li>
+    <li><a href="#read-write">8. Псевдокласс :read-write</a></li>
+    <li><a href="#valid">9. Псевдокласс :valid</a></li>
+</ul>
+<h3 id="read-only">1. Псевдокласс :read-only</h3>
+<p>Псевдокласс <kbd>:read-only</kbd> отбирает html-элементы, для которых задан атрибут <kbd>readonly</kbd> — элементы
+    <kbd>&lt;input&gt;</kbd> и <kbd>&lt;textarea&gt;</kbd>, а также для любого элемента, для которого установлен атрибут
+    <kbd>contenteditable</kbd>. Не поддерживается в Internet Explorer, Firefox поддерживает альтернативный псевдокласс
+    <kbd>:-moz-read-only</kbd>.</p>
+<h3 id="optional">2. Псевдокласс :optional</h3>
+<p>Псевдокласс <kbd>:optional</kbd> отбирает элементы формы, для которых не задан атрибут <kbd>required</kbd>. Это могут
+    быть элементы <kbd>&lt;input&gt;</kbd>, <kbd>&lt;select&gt;</kbd> и <kbd>&lt;textarea&gt;</kbd>. Поддерживается в
+    Chrome 10+, Firefox, Safari, Opera 10+, Internet Explorer 10+, Android и iOS.</p>
+<h3 id="required">3. Псевдокласс :required</h3>
+<p>Псевдокласс <kbd>:required</kbd> отбирает элементы формы, для которых установлен атрибут <kbd>required</kbd>. Это
+    элементы <kbd>&lt;input&gt;</kbd>, <kbd>&lt;select&gt;</kbd> и <kbd>&lt;textarea&gt;</kbd>. Благодаря этому
+    псевдоклассу можно привлечь внимание к полям формы, обязательным для заполнения. Поддерживается в Chrome 10+,
+    Firefox, Safari, Opera 10+, Internet Explorer 10+, Android и iOS.</p>
+<h3 id="placeholder">4. Псевдоэлемент ::placeholder</h3>
+<p>Псевдоэлемент <kbd>::placeholder</kbd> отвечает за замещающий текст-подсказку, выводящийся внутри элементов <kbd>&lt;input&gt;</kbd>
+    и <kbd>&lt;textarea&gt;</kbd>. В большинстве браузеров цвет замещающего текста по умолчанию светло-серого оттенка. С
+    помощью псевдоэлемента <kbd>::placeholder</kbd> можно изменить такие свойства, как <kbd>font</kbd>, <kbd>color</kbd>,
+    добавить тень, подчеркивание и т.д. во всех случаях, кроме <kbd>&lt;input type="datetime-local"&gt;</kbd> и <kbd>
+        &lt;input type="date"&gt;</kbd>. </p>
+<p>Браузеры имеют свою собственную реализацию псевдоэлемента <kbd>::placeholder</kbd>, поэтому необходимо добавлять
+    браузерные префиксы. В зависимости от браузера, текст-заполнитель может исчезать, когда поле ввода принимает фокус,
+    например, в IE10+. Поддерживается во всех браузерах, в Internet Explorer 10+.</p>
+<h3 id="in-range">5. Псевдокласс :in-range</h3>
+<p>Выбирает поля формы с установленным диапазоном ограничения, заданным атрибутами <kbd>min</kbd> и <kbd>max</kbd>.
+    Поддерживается в Chrome 10+, Firefox 28+, Safari 5.5+, Opera 11+, Android и iOS. Не работает в Internet Explorer.
+</p>
+<h3 id="invalid">6. Псевдокласс :invalid</h3>
+<p>Выбирает элементы <kbd>&lt;input&gt;</kbd>, значение которых является недопустимым согласно его типу, указанному в
+    атрибуте <kbd>type</kbd><br>
+    Например, поле <kbd>&lt;input type="number"&gt;</kbd> не может содержать буквы, а <kbd>&lt;input
+        type="email"&gt;</kbd> должно содержать валидный адрес электронной почты. Поддерживается в Chrome 10+, Firefox
+    4+, IE 10+, Safari 5+, Opera 10+ и iOS.</p>
+<h3 id="out-of-range">7. Псевдокласс :out-of-range</h3>
+<p>Используется для стилизации элементов, имеющих ограничения на ввод значений в случае, когда вводимое значение
+    элемента неизбежно выходит за пределы указанного диапазона. Поддерживается в Chrome 10+, Firefox, 28+. Safari, Opera
+    11+, Android и iOS. Не работает в Internet Explorer.</p>
+<h3 id="read-write">8. Псевдокласс :read-write</h3>
+<p>Выбирает элементы формы, которые доступны для редактирования пользователем. К этой категории относятся элементы <kbd>
+    &lt;textarea&gt;</kbd> И <kbd>&lt;input&gt;</kbd>, для которых не заданы атрибуты <kbd>readonly</kbd> или <kbd>disabled</kbd>,
+    а также другие элементы, для которых задан атрибут <kbd>contenteditable</kbd>:</p>
+<p>Поддерживается в Chrome, Safari, Opera 14+ и iOS. Firefox поддерживает альтернативное <kbd>:-moz-read-write</kbd>. Не
+    работает в Internet Explorer и на Android.</p>
+<h3 id="valid">9. Псевдокласс :valid</h3>
+<p>Выбирает элементы формы, введенные значения которых соответствуют типу, указанному в атрибуте <kbd>type</kbd> или
+    находящиеся в разрешенном диапазоне:<br>
+    <span class="first"></span> поля формы для ввода адреса электронной почты;<br>
+    <span class="first"></span> поля формы для ввода url-адресов;<br>
+    <span class="first"></span> поля формы, предполагающие введение числового значения, с указанием диапазона с помощью
+    атрибутов <kbd>min</kbd> и <kbd>max</kbd>.</p>
+<p>Поддерживается в Chrome 10+, Firefox 4+, Safari 5+, Opera 10+, Internet Explorer 10+ и на iOS.</p>
+
+
+<h2>Пример формы:</h2>
+<h3>Форма регистрации</h3>
+<div class="row">
+    <div class="col-lg-8">
+        <form action="/" name="registration" method="POST" autocomplete="off">
+            <input type="hidden" value="http://frontcats.ru" name="page_url">
+            <div class="form-group row">
+                <div class="col-lg-6">
+                    <label>Сайт регистрации</label>
+                    <input type="url" pattern="https?://.+" name="site_registration" class="form-control"
+                           value="http://frontcats.ru" readonly>
+
+                </div>
+                <div class="col-lg-6">
+                    <label>Ваш возраст</label>
+                    <input type="number" name="age" min="16" max="29" class="form-control" required/>
+                    <div class="mandatory">Обязательное поле</div>
+                    <div class="warning-min">Внимание! Минимальное значение - 16</div>
+                    <div class="warning-min">Внимание! Максимальное значение - 29</div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6">
+                    <label>Логин</label>
+                    <input type="text" name="login" class="form-control" required
+                           placeholder="Введите логин для входа на сайт">
+                    <div class="mandatory">Обязательное поле</div>
+                </div>
+                <div class="col-lg-6">
+                    <label>E-mail</label>
+                    <input type="email" name="email" class="form-control" required>
+                    <div class="mandatory">Обязательное поле</div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6">
+                    <label>Пароль</label>
+                    <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="password"
+                           class="form-control" required>
+                    <div class="mandatory">Обязательное поле</div>
+                    <div class="help-block">Пароль должен включать в себя 1 букву в верхнем регистре, 1 букву в нижнем
+                        регистре, минимум одно число и длина минимум 6 символов
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Повторите пароль</label>
+                    <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" name="confirm_password"
+                           class="form-control" required>
+                    <div class="mandatory">Обязательное поле</div>
+                    <div class="help-block">Пароль должен включать в себя 1 букву в верхнем регистре, 1 букву в нижнем
+                        регистре, минимум одно число и длина минимум 6 символов
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6">
+                    <label>Имя</label>
+                    <input name="first_name" placeholder="Введите ваше имя" class="form-control" required>
+                    <div class="mandatory">Обязательное поле</div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Фамилия</label>
+                    <input name="last_name" placeholder="Введите вашу фамилию" class="form-control" required>
+                    <div class="mandatory">Обязательное поле</div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6">
+                    <label>Дата рождения</label>
+                    <input type="date" name="date" class="form-control">
+                    <div class="not-mandatory">Поле необязательно</div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Пол</label>
+                    <div>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" id="male" value="1" required> мужчина
+                            <div class="mandatory">Обязательное поле</div>
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="sex" id="female" value="0" required> женщина
+                            <div class="mandatory">Обязательное поле</div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6">
+                    <label>Страна</label>
+                    <select name="country" class="form-control">
+                        <option>Канада</option>
+                        <option>Франция</option>
+                        <option>Германия</option>
+                        <option>Италия</option>
+                        <option>Япония</option>
+                        <option selected="">Россия</option>
+                        <option>Великобритания</option>
+                        <option>США</option>
+                    </select>
+                    <div class="not-mandatory">Поле необязательно</div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Город</label>
+                    <select name="country" class="form-control">
+                        <option>Новосибирск</option>
+                        <option>Санкт-Петербург</option>
+                        <option>Томск</option>
+                        <option>Омск</option>
+                        <option>Краснодар</option>
+                        <option selected="">Москва</option>
+                    </select>
+                    <div class="not-mandatory">Поле необязательно</div>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col-lg-6">
+                    <label>Ваш сайт</label>
+                    <input type="url" name="site" class="form-control" pattern="https?://.+">
+                    <div class="not-mandatory">Поле необязательно</div>
+                    <div class="help-block">Сайты должны начинаться с http:// или https://</div>
+                </div>
+                <div class="col-lg-6">
+                    <label>Ваша должность</label>
+                    <input type="text" name="job" class="form-control">
+                    <div class="not-mandatory">Поле необязательно</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Ваша подпись</label>
+                <textarea name="sign" class="form-control" rows="6"></textarea>
+                <div class="not-mandatory">Поле необязательно</div>
+            </div>
+            <div class="form-group">
+                <label>Выберите аватар</label>
+                <input type="file" name="image">
+                <div class="not-mandatory">Поле необязательно</div>
+            </div>
+            <div class="form-group">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" required> Я согласен с условиями использования
+                        <div class="mandatory">Обязательное поле</div>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success">Зарегистрироваться</button>
+            <button type="reset" class="btn btn-default">Очистить форму</button>
+        </form>
+    </div>
+</div>
+
+
+
