@@ -1,0 +1,17 @@
+body {
+  padding-top: 70px;
+}
+.tags-expo :target:before {
+  content: "";
+  display: block;
+  height: 70px;
+  margin: -70px 0 0;
+}
+.btn-top {
+  bottom: 3%;
+  z-index: 10;
+  cursor: pointer;
+  display: none;
+  position: fixed;
+  right: 1%;
+}

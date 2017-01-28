@@ -3,15 +3,31 @@ layout: inner
 ---
 
 <article class="post">
-    <p><a href="{{site.baseurl}}/blog">Вернуться назад</a></p>
+    <p><a href="{{site.baseurl}}/blog">← Вернуться назад</a></p>
+    <small>Дата создания {{ page.date | date: "%m.%d.%Y"  }}</small>
+    <br/>
+    <small>Категория: <b>{{page.categories}}</b></small>
+    {% if page.tags %} |
+    {% for tag in page.tags %}
+    <a href="{{ site.baseurl }}/blog/tags/#{{ tag | slugify }}" class="label label-info">{{ tag }}</a>
+    {% endfor %}
+    {% endif %}
+
     <h1>{{ page.title }}</h1>
+
 
     <div class="entry">
         {{ content }}
     </div>
-    <hr/>
-    <div class="date">
-        Дата создания {{ page.date | date: "%B %e, %Y" }}
-    </div>
-
 </article>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".toc").toc({
+            headings: "h2,h3,h4"
+        });
+        //panel panel-default
+        $('.toc').wrap('<div class="panel panel-default js-toc-panel"></div>');
+        $('.js-toc-panel').prepend('<div class="panel-heading"><h3 class="panel-title">Содержание</h3></div>');
+        $('.toc').wrap('<div class="panel-body"></div>');
+    })
+</script>

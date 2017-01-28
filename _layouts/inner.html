@@ -15,38 +15,110 @@
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script type="text/javascript" src="/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.toc.js"></script>
+    <script type="text/javascript" src="/js/blog.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
-    <link rel="stylesheet" type="text/css" href="/test.css" />
+    <link rel="stylesheet" type="text/css" href="/css/blog.css" />
 
 </head>
 
 <body>
-<div class="wrapper-masthead">
+<div class="js-top btn btn-primary btn-top">Наверх</div>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
-        <header class="masthead clearfix">
-            <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">frontCats</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="/blog">Блог</a>
+                </li>
+                <li>
+                    <a href="/blog/categories">Категории</a>
+                </li>
+                <li>
+                    <a href="/blog/tags">Тэги</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="navbar-text">
+                    {{ site.description }}
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
 
-            <div class="site-info">
-                <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-                <p class="site-description">{{ site.description }}</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            {{ content }}
+        </div>
+        <div class="col-md-4">
+            <ul class="toc"></ul>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">Категории</div>
+                </div>
+                <div class="list-group">
+
+                    {% assign categories_list = site.categories %}
+                    {% if categories_list.first[0] == null %}
+                    {% for category in categories_list %}
+                    <a href="/blog/categories/#{{ category | downcase }}" class="list-group-item">
+                        <span class="badge">{{ site.tags[category].size }}</span>
+                        {{ category | capitalize }}</a>
+                    {% endfor %}
+                    {% else %}
+                    {% for category in categories_list %}
+                    <a href="/blog/categories#{{ category[0] | downcase }}" class="list-group-item">
+                        <span class="badge">{{ category[1].size }}</span>
+                        {{ category[0] | capitalize }}</a>
+                    {% endfor %}
+                    {% endif %}
+                    {% assign categories_list = nil %}
+
+                </div>
             </div>
-        </header>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">Полезные ссылки</div>
+                </div>
+                <div class="panel-body">
+                   <p><a href="http://caniuse.com" target="_blank">caniuse.com</a></p>
+                   <p><a href="http://htmlbook.ru" target="_blank">htmlbook.ru</a></p>
+                   <p><a href="http://learn.javascript.ru" target="_blank">learn.javascript.ru</a></p>
+                   <p><a href="https://www.w3.org/" target="_blank">W3C</a></p>
+                   <p><a href="http://ru.lipsum.com/" target="_blank">Lorem lipsum</a></p>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-
-<div id="main" role="main" class="container">
-    {{ content }}
-</div>
-
-<div class="wrapper-footer">
-    <div class="container">
-        <footer class="footer">
-
-        </footer>
-    </div>
+    <hr/>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; frontCats 2017, Санкт-Петербург</p>
+            </div>
+        </div>
+        <!-- /.row -->
+    </footer>
 </div>
 
 </body>
