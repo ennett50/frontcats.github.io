@@ -9,7 +9,7 @@ layout: inner
     <small>Категория: <b>{{page.categories}}</b></small>
     {% if page.tags %} |
     {% for tag in page.tags %}
-    <a href="{{ site.baseurl }}/blog/tags/#{{ tag | slugify }}" class="label label-info">{{ tag }}</a>
+    <a href="{{ site.baseurl }}/blog/tags#{{ tag | slugify }}" class="label label-info">{{ tag }}</a>
     {% endfor %}
     {% endif %}
 

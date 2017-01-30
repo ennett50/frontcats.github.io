@@ -19,7 +19,7 @@ title: Блог
         </span>
         {% if post.tags %} |
         {% for tag in post.tags %}
-        <a href="{{ site.baseurl }}/blog/tags/#{{ tag | slugify }}" class="label label-info">{{ tag }}</a>
+        <a href="{{ site.baseurl }}/blog/tags#{{ tag | slugify }}" class="label label-info">{{ tag }}</a>
         {% endfor %}
         {% endif %}
 
