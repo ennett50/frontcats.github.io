@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"
+	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	      crossorigin="anonymous">
+	<link rel="stylesheet" href="../js/highlight/styles/monokai.css">
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8">
+			<article class="post">
+				<h2>Базовый синтаксис</h2>
+				<div class="row">
+					<div class="col-lg-6">
+						<p>Дочерний элемент: <b style="font-size:28px;"><mark>></mark></b></p>
+						<code class="" style="font-size:28px;">
+							nav>ul>li
+						</code>
+					</div>
+					<div class="col-lg-6">
+						<pre>
+				<code class="html">
+&lt;nav&gt;
+  	&lt;ul&gt;
+		&lt;li&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/nav&gt;
+				</code>
+			</pre>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-lg-6">
+						<p>Следующий (дочерний) элемент: <b style="font-size:28px;"><mark>+</mark></b></p>
+						<code class="" style="font-size:28px;">
+							p+bq+span
+						</code>
+					</div>
+					<div class="col-lg-6">
+						<pre>
+				<code class="html">
+&lt;p&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;span&gt;&lt;/span&gt;
+				</code>
+			</pre>
+					</div>
+				</div>
+
+
+			</article>
+		</div>
+	</div>
+</div>
+<script src="../js/highlight/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>   
