@@ -1,32 +1,24 @@
-<!doctype html>
-<html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport"
-	      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	      crossorigin="anonymous">
-	<link rel="stylesheet" href="../js/highlight/styles/monokai.css">
-
-</head>
-<body>
-<div class="container">
-	<div class="row">
-		<div class="col-lg-8">
-			<article class="post">
-				<h2>Базовый синтаксис</h2>
-				<div class="row">
-					<div class="col-lg-6">
-						<p>Дочерний элемент: <b style="font-size:28px;"><mark>></mark></b></p>
-						<code class="" style="font-size:28px;">
-							nav>ul>li
-						</code>
-					</div>
-					<div class="col-lg-6">
-						<pre>
-				<code class="html">
+---
+layout: post
+permalink: /blog/emmet-html/
+date:   06.02.2017
+categories: HTML
+tags: [emmet, html, development]
+title: Emmet - написание быстрой html-разметки
+---
+<p>Emmet — это инструмент для ускорения работы с HTML и CSS. Здесь будет подробно описаны все методы для написание быстрого html. Стоит напомнить, что все команды "разворачиваются" по клавише <code>Tab</code></p>
+<h2>Базовый синтаксис</h2>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Дочерний элемент: <b class="code-size">
+            <mark>></mark>
+        </b></p>
+        <code class="code-size">
+            nav>ul>li
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
 &lt;nav&gt;
   	&lt;ul&gt;
 		&lt;li&gt;&lt;/li&gt;
@@ -34,33 +26,695 @@
 &lt;/nav&gt;
 				</code>
 			</pre>
-					</div>
-				</div>
-				<hr>
-				<div class="row">
-					<div class="col-lg-6">
-						<p>Следующий (дочерний) элемент: <b style="font-size:28px;"><mark>+</mark></b></p>
-						<code class="" style="font-size:28px;">
-							p+bq+span
-						</code>
-					</div>
-					<div class="col-lg-6">
-						<pre>
-				<code class="html">
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Следующий (дочерний) элемент: <b class="code-size">
+            <mark>+</mark>
+        </b></p>
+        <code class="code-size">
+            p+bq+span
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
 &lt;p&gt;&lt;/p&gt;
 &lt;blockquote&gt;&lt;/blockquote&gt;
 &lt;span&gt;&lt;/span&gt;
 				</code>
 			</pre>
-					</div>
-				</div>
-
-
-			</article>
-		</div>
-	</div>
+    </div>
 </div>
-<script src="../js/highlight/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
-</body>
-</html>   
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Подняться на один уровень в дереве HTML выше: <b class="code-size">
+            <mark>^</mark>
+        </b></p>
+        <code class="code-size">
+            div>p>span^bq
+        </code>
+        <br>
+        <small>Стоить отметить, что допустимы и множественные варианты. Например, <code>p>a>span^^p</code></small>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;div&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;/div&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Группировака по тэгам: <b class="code-size">
+            <mark>()</mark>
+        </b></p>
+        <code class="code-size">
+            (div>p>span^bq)+ul>li
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;div&gt;
+    &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Умножение элементов: <b class="code-size">
+            <mark>*</mark>
+        </b></p>
+        <code class="code-size">
+            ul>li*5
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>id и class</p>
+        <code class="code-size">
+            #header+div.footer
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;span id=&quot;header&quot;&gt;&lt;/span&gt;
+&lt;div class=&quot;footer&quot;&gt;&lt;/div&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Атрибуты тэгов: <b class="code-size">
+            <mark>[ ]</mark>
+        </b></p>
+        <code class="code-size">
+            a[title="Hello"]
+        </code>
+        <code class="code-size">
+            img[alt]
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;a href=&quot;&quot; title=&quot;Hello&quot;&gt;&lt;/a&gt;
+&lt;img src=&quot;&quot; alt=&quot;&quot;&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Заменяющий тект-рыба: <b class="code-size">
+            <mark>Lorem</mark>
+        </b></p>
+        <code class="code-size">
+            p>Lorem
+        </code>
+        <br>
+        <small>Также допустимы значения по количеству слов. Например, <code>Lorem5</code></small>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam ducimus atque ut quia ratione, eveniet ipsum inventore provident! Enim quasi quo quia nam dolores est velit nihil delectus, sunt quisquam.&lt;/p&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Нумерация: <b class="code-size">
+            <mark>()</mark>
+        </b></p>
+        <code class="code-size">
+            ul>li.item$*5
+        </code>
+        <br>
+        <small>Вы также можете использовать множественный оператор<code>$$$</code></small>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;ul&gt;
+    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Изменение нумерации и направления: <b class="code-size">
+            <br/><mark>@-, @3</mark>
+        </b></p>
+        <code class="code-size">
+            ul>li.item$@-*5
+        </code>
+        <br>
+        <code class="code-size">
+            ul>li.item$@3*5
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+ &lt;ul&gt;
+    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item2&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item1&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+    &lt;li class=&quot;item3&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item4&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item5&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item6&quot;&gt;&lt;/li&gt;
+    &lt;li class=&quot;item7&quot;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Текст: <b class="code-size">
+            <mark>{}</mark>
+        </b></p>
+        <code class="code-size">
+            a{click}+b{here}
+        </code>
+        <br>
+        <code class="code-size">
+            a>{click}+b{here}
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;a href=&quot;&quot;&gt;click&lt;/a&gt;&lt;b&gt;here&lt;/b&gt;
+&lt;a href=&quot;&quot;&gt;click&lt;b&gt;here&lt;/b&gt;&lt;/a&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<br><br><br>
+<h2>Фильтры</h2>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Экранирует все html тэги: <b class="code-size">
+            <mark>|e</mark>
+        </b></p>
+        <code class="code-size">
+            #content>p.title|e
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;span id="content"&gt;
+    &lt;p class="title"&gt;&lt;/p&gt;
+&lt;/span&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Комментриует тэги: <b class="code-size">
+            <mark>|с</mark>
+        </b></p>
+        <code class="code-size">
+            div#page>p.title+p|c
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;div id=&quot;page&quot;&gt;
+    &lt;p class=&quot;title&quot;&gt;&lt;/p&gt;
+    &lt;!-- /.title --&gt;
+    &lt;p&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- /#page --&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Все тэги пишет в одну линию: <b class="code-size">
+            <mark>|s</mark>
+        </b></p>
+        <code class="code-size">
+            p.title+p>span|t
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;p class=&quot;title&quot;&gt;&lt;/p&gt;&lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<br><br><br>
+<h2>HTML сокращения</h2>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Базовая html5 разметка</p>
+        <code class="code-size">
+            !
+        </code>
+        <br>
+        <code class="code-size">
+            html:5
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot;
+          content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;ie=edge&quot;&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Ссылка</p>
+        <code class="code-size">
+            a
+        </code>
+        <br>
+        <code class="code-size">
+            a:link
+        </code>
+        <code class="code-size">
+            a:mail
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;a href=&quot;&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;http://&quot;&gt;&lt;/a&gt;
+&lt;a href=&quot;mailto:&quot;&gt;&lt;/a&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Разделители</p>
+        <code class="code-size">
+            br
+        </code>
+        <br>
+        <code class="code-size">
+            hr
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;br&gt;
+&lt;hr&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Link</p>
+        <code class="code-size">
+            link
+        </code>
+        <br>
+        <code class="code-size">
+            link:css
+        </code>
+        <code class="code-size">
+            link:favicon
+        </code>
+        <code class="code-size">
+            link:rss
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;link rel=&quot;stylesheet&quot; href=&quot;&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;
+&lt;link rel=&quot;shortcut icon&quot; type=&quot;image/x-icon&quot; href=&quot;favicon.ico&quot;&gt;
+&lt;link rel=&quot;alternate&quot; type=&quot;application/rss+xml&quot; title=&quot;RSS&quot; href=&quot;rss.xml&quot;&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Meta</p>
+        <code class="code-size">
+            meta:utf
+        </code>
+        <br>
+        <code class="code-size">
+            meta:vp
+        </code>
+
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Script</p>
+        <code class="code-size">
+            script:src
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;script src=&quot;&quot;&gt;&lt;/script&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+
+<div class="row">
+    <div class="col-lg-6">
+        <p>Картинка, фигуры и т.п.</p>
+        <code class="code-size">
+            img
+        </code>
+        <br>
+        <code class="code-size">
+            fig
+        </code>
+        <br>
+        <code class="code-size">
+            figc
+        </code>
+        <br>
+        <code class="code-size">
+            pic
+        </code>
+
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;img src="" alt=""&gt;
+&lt;figure&gt;&lt;/figure&gt;
+&lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;picture&gt;&lt;/picture&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Фреймы, видео и т.п.</p>
+        <code class="code-size">
+            ifr
+        </code>
+        <br>
+        <code class="code-size">
+            emb
+        </code>
+        <br>
+        <code class="code-size">
+            obj
+        </code>
+        <br>
+        <code class="code-size">
+            map
+        </code>
+        <br>
+        <code class="code-size">
+            map+
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;iframe src=&quot;&quot; frameborder=&quot;0&quot;&gt;&lt;/iframe&gt;
+&lt;embed src=&quot;&quot; type=&quot;&quot;&gt;
+&lt;object data=&quot;&quot; type=&quot;&quot;&gt;&lt;/object&gt;
+
+&lt;map name=&quot;&quot;&gt;&lt;/map&gt;
+&lt;map name=&quot;&quot;&gt;
+    &lt;area shape=&quot;&quot; coords=&quot;&quot; href=&quot;&quot; alt=&quot;&quot;&gt;
+&lt;/map&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Элементы формы</p>
+        <code class="code-size">
+            form
+        </code>
+        <br>
+        <code class="code-size">
+            form:get
+        </code>
+        <br>
+        <code class="code-size">
+            form:post
+        </code>
+        <br>
+        <code class="code-size">
+            label
+        </code>
+        <br>
+        <code class="code-size">
+            input
+        </code>
+        <br>
+        <code class="code-size">
+            input:p
+        </code>
+        <br>
+        <code class="code-size">
+            input:date
+        </code>
+        <br>
+        <code class="code-size">
+            input:c
+        </code>
+        <br>
+        <code class="code-size">
+            input:r
+        </code>
+        <br>
+        <code class="code-size">
+            input:s
+        </code>
+        <br>
+        <code class="code-size">
+            select+
+        </code>
+        <br>
+        <code class="code-size">
+            tarea
+        </code>
+        <br>
+        <code class="code-size">
+            btn
+        </code>
+        <br>
+        <code class="code-size">
+            btn:s
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;form action=&quot;&quot;&gt;&lt;/form&gt;
+&lt;form action=&quot;&quot; method=&quot;get&quot;&gt;&lt;/form&gt;
+&lt;form action=&quot;&quot; method=&quot;post&quot;&gt;&lt;/form&gt;
+
+&lt;label for=&quot;&quot;&gt;&lt;/label&gt;
+
+&lt;input type=&quot;text&quot;&gt;
+&lt;input type=&quot;password&quot; name=&quot;&quot; id=&quot;&quot;&gt;
+&lt;input type=&quot;date&quot; name=&quot;&quot; id=&quot;&quot;&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;&quot; id=&quot;&quot;&gt;
+&lt;input type=&quot;radio&quot; name=&quot;&quot; id=&quot;&quot;&gt;
+&lt;input type=&quot;submit&quot; value=&quot;&quot;&gt;
+
+&lt;select name=&quot;&quot; id=&quot;&quot;&gt;
+    &lt;option value=&quot;&quot;&gt;&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;textarea name=&quot;&quot; id=&quot;&quot; cols=&quot;30&quot; rows=&quot;10&quot;&gt;&lt;/textarea&gt;
+
+&lt;button&gt;&lt;/button&gt;
+&lt;button type=&quot;submit&quot;&gt;&lt;/button&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Списки</p>
+        <code class="code-size">
+            ol+
+        </code>
+        <br>
+        <code class="code-size">
+            ul+
+        </code>
+        <br>
+        <code class="code-size">
+            dl+
+        </code>
+        <br>
+        <code class="code-size">
+            table+
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;ol&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;dl&gt;
+    &lt;dt&gt;&lt;/dt&gt;
+    &lt;dd&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Комментарии</p>
+        <code class="code-size">
+            c
+        </code>
+        <br>
+        <code class="code-size">
+            cc:ie8
+        </code>
+        <br>
+        <code class="code-size">
+            cc:ie
+        </code>
+        <br>
+        <code class="code-size">
+            cc:noie
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+&lt;!-- Комментарий --&gt;
+&lt;!--[if lte IE 8]&gt;
+
+&lt;![endif]--&gt;
+&lt;!--[if IE]&gt;
+
+&lt;![endif]--&gt;
+&lt;!--[if !IE]&gt;&lt;!--&gt;
+
+&lt;!--&lt;![endif]--&gt;
+				</code>
+			</pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Любой тег</p>
+        <code class="code-size">
+            div
+        </code>
+        <br>
+        <code class="code-size">
+            span
+        </code>
+        <br>
+        <code class="code-size">
+            tagname
+        </code>
+    </div>
+    <div class="col-lg-6">
+						<pre><code class="html">
+div
+&lt;div&gt;&lt;/div&gt;
+
+span
+&lt;span&gt;&lt;/span&gt;
+
+Любой другой тег
+&lt;tagname&gt;&lt;/tagname&gt;
+				</code>
+			</pre>
+    </div>
+</div>

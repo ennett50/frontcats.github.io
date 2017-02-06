@@ -15,3 +15,6 @@ body {
   position: fixed;
   right: 1%;
 }
+.code-size {
+  font-size: 2em;
+}
