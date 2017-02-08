@@ -28,8 +28,345 @@ title: Основны команды в терминале
     </div>
     <div class="col-lg-6">
 <pre><code class="bash">
-$pwd
-$/home/username
+:~$ pwd
+:~$ /home/username
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Переход в нужную дирректорию: 
+        <br>
+        <b class="code-size">
+            <mark>cd</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~$ cd /home
+:~/www$ 
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Подняться на уровень выше: 
+        <br>
+        <b class="code-size">
+            <mark>cd .</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/www$ cd ..
+:~/$ 
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Перейти в домашную папку: 
+        <br>
+        <b class="code-size">
+            <mark>cd ~</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/www/project$ cd ~
+:~/$ 
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Отобразить содержимое текущей директории: 
+        <br>
+        <b class="code-size">
+            <mark>ls</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/www/project$ ls
+examples.desktop  www        Загрузки     Общедоступные
+pgadmin.log       Видео      Изображения  Рабочий стол
+redis-2.8.9       Документы  Музыка       Шаблоны
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Детализированое представление файлов и директорий в текущей директории:
+        <br>
+        <b class="code-size">
+            <mark>ls -l</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/www/project$ ls
+-rw-r--r--  1 user303 user303  8980 июня  14  2016 examples.desktop
+-rw-rw-r--  1 user303 user303 11154 февр.  7 10:54 pgadmin.log
+drwxrwxr-x  6 user303 user303  4096 апр.  22  2014 redis-2.8.9
+drwxrwxr-x 32 user303 user303  4096 янв.  20 16:53 www
+drwxr-xr-x  2 user303 user303  4096 июня  14  2016 Видео
+drwxr-xr-x  2 user303 user303  4096 июня  14  2016 Документы
+drwxr-xr-x 15 user303 user303 12288 февр.  7 10:11 Загрузки
+drwxr-xr-x  3 user303 user303  4096 янв.  31 10:26 Изображения
+drwxr-xr-x  2 user303 user303  4096 июня  14  2016 Музыка
+drwxr-xr-x  2 user303 user303  4096 июня  14  2016 Общедоступные
+drwxr-xr-x  6 user303 user303  4096 февр.  6 08:53 Рабочий стол
+drwxr-xr-x  2 user303 user303  4096 июня  14  2016 Шаблоны
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Показать скрытые файлы и директории в текущей директории:
+        <br>
+        <b class="code-size">
+            <mark>ls -a</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/www/project$ ls -a
+.          www        Рабочий стол     
+..         Видео      Шаблоны  
+.cache     Документы        
+.Skype     Загрузки
+.ssh       Изображения
+.profile   Музыка
+.java      Общедоступные
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Создать дерево директорий:
+        <br>
+        <b class="code-size">
+            <mark>mkdir [имя_директории]</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ mkdir test
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Создать дерево директорий:
+        <br>
+        <b class="code-size">
+            <mark>mkdir -p /[имя_директории]/[имя_директории]/</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ mkdir -p /tmp/test1/test2
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Удалить директорию:
+        <br>
+        <b class="code-size">
+            <mark>rmdir [имя_директории]</mark>
+        </b>
+        </p>
+        <small>Можно добавлять флаг <code>-f</code>, что удалить файлы форсировнно без лишних вопросов, например, <code>rmdir -f test</code></small>        
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ rmdir test
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Удалить директорию со всеми вложенными папками и файлами(рекурсивно):
+        <br>
+        <b class="code-size">
+            <mark>rmdir -r [имя_директории]</mark>
+        </b>
+        </p>  
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ rmdir -r test
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Создать файл:
+        <br>
+        <b class="code-size">
+            <mark>touch [имя_файла</mark>
+        </b>
+        </p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ touch README.md
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Удалить файл:
+        <br>
+        <b class="code-size">
+            <mark>rm [имя_файла]</mark>
+        </b>
+        </p>
+        <small>Можно добавлять флаг <code>-f</code>, что удалить файлы форсировнно без лишних вопросов, например, <code>rm -f test</code></small>        
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ rm README.md
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Вывести содержимое файла в консоль:
+        <br>
+        <b class="code-size">
+            <mark>cat [имя_файла]</mark>
+        </b>
+        </p>   
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ cat README.md
+#Lorem ipsum
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, et.
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Скопировать содержимое файла в другой файл:
+        <br>
+        <b class="code-size">
+            <mark>cp [имя_файла_1] [имя_файла_2]</mark>
+        </b>
+        </p>   
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ cp README.md README_1.md 
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Скопировать содержимое директории в другую директорию:
+        <br>
+        <b class="code-size">
+            <mark>cp -r [имя_директории_1] [имя_директории_2]</mark>
+        </b>
+        </p>   
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ cp test test-1 -r
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Переименовать или переместить:
+        <br>
+
+        <b class="code-size">
+            <mark>mv [имя_1] [имя_2]</mark>
+        </b>
+        </p>   
+        <p>Если [имя_2] существующий каталог - переместить [имя_1] в каталог [имя_2], иначе переименовать</p>
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ mv test1 test2
+:~/$
+</code></pre>
+    </div>
+</div>
+
+<h3>Общее</h3>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Очистить консоль:
+        <br>
+
+        <b class="code-size">
+            <mark>clear</mark>
+        </b>
+        </p>   
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ clear
+:~/$
+</code></pre>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-6">
+        <p>Помощь:
+        <br>
+
+        <b class="code-size">
+            <mark>help</mark>
+        </b>
+        </p>  
+        <p>Также можно запрашивать отдельные команды как<code>help cd</code></p>     
+    </div>
+    <div class="col-lg-6">
+<pre><code class="bash">
+:~/$ help cd
+cd: cd [-L|[-P [-e]] [-@]] [dir]
+    Change the shell working directory.
+...    
 </code></pre>
     </div>
 </div>
